@@ -101,8 +101,11 @@ public class MessageFactory {
             return this;
         }
         public WxMpTemplateData build() {
-            if (StrUtil.hasEmpty(name, value)) {
+            if (StrUtil.hasEmpty(name)) {
                 throw new IllegalArgumentException("参数不正确");
+            }
+            if (StrUtil.hasEmpty(value)){
+                value = "";
             }
             WxMpTemplateData data = new WxMpTemplateData();
             data.setName(name);
